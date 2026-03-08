@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="投稿指南 / Submit — DAMN">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <h1 class="text-2xl sm:text-3xl font-bold text-(--color-text-primary) mb-2" style="font-family: var(--font-serif);">
+      投稿指南 / Submission Guidelines
+    </h1>
+    <p class="text-sm text-(--color-text-secondary) mb-10">
+      欢迎向《DAMN》投稿 / Submissions are welcome
+    </p>
+
+    <!-- Quick CTA -->
+    <div class="bg-(--color-accent)/10 border border-(--color-accent)/30 rounded p-6 mb-10 text-center">
+      <p class="text-(--color-text-primary) font-semibold mb-2">投稿邮箱 / Submission Email</p>
+      <a href="mailto:2401112250@stu.pku.edu.cn" class="text-lg text-(--color-accent) font-mono">
+        2401112250@stu.pku.edu.cn
+      </a>
+      <p class="text-xs text-(--color-text-secondary) mt-2">邮件标题请注明"《DAMN》投稿" / Please include "DAMN Submission" in the subject line</p>
+    </div>
+
+    <div class="prose">
+      <!-- 征稿范围 -->
+      <h2>征稿范围 / Scope</h2>
+
+      <p>《DAMN》欢迎来自一切学科领域的投稿。</p>
+
+      <blockquote>
+        课题可以荒诞，但思维必须严谨；<br />
+        表达可以有趣，但逻辑必须自洽；<br />
+        形式可以解构，但绝不允许造假。
+      </blockquote>
+
+      <p>如果你的研究同时满足以上三条，恭喜你，你比很多正经期刊的来稿质量都高了。</p>
+
+      <p>《DAMN》欢迎来自一切学科领域的投稿，包括但不限于：自然科学、工程技术、社会科学、人文艺术、哲学思辨、生活科学、游戏研究、美食学、影视分析、武侠学、神话学、网络文化学……以及任何尚未被命名的学科。</p>
+
+      <p>我们尤其欢迎以下类型的研究：</p>
+      <ul>
+        <li>用科学方法解析日常生活中的荒诞现象（例：为什么微信消息"在吗"的回复率与发送时间呈非U型曲线分布）</li>
+        <li>用荒诞视角重新审视严肃学术问题（例：基于博弈论的宿舍空调温度战争研究）</li>
+        <li>跨学科融合的奇思妙想（例：用流体力学分析食堂排队动力学）</li>
+        <li>对社会现象的解构式研究（例："开会时长"与"实际产出"的负相关性实证分析）</li>
+        <li>任何让你在深夜灵光一闪、拍案叫绝的研究设想</li>
+      </ul>
+
+      <p>（如果你的灵光一闪发生在凌晨，请务必先记下来再睡觉。根据我们的非正式统计，凌晨灵感的存活率不足12%。）</p>
+
+      <!-- 格式规范 -->
+      <h2>投稿格式规范 / Format Requirements</h2>
+
+      <p>投稿内容可以采用中文，也可以采用英文。</p>
+
+      <p><strong>投稿文件要求：</strong></p>
+      <ul>
+        <li>接受格式：Word（.docx）、Markdown 等可编辑格式。如被录取，会直接进行排版优化并发表。</li>
+        <li>图表请尽量清晰，分辨率不低于"能看清楚"的程度。</li>
+        <li>公式推荐使用LaTeX排版，手写拍照也行——只要你的字比医生的处方好认。</li>
+      </ul>
+
+      <p><strong>《DAMN》要求投稿者采用正规学术论文格式，具体包括：</strong></p>
+      <ul>
+        <li><strong>标题：</strong>得有。好标题的标准是：让导师看到会沉默，让朋友看到会转发，让陌生人看到会点进来。</li>
+        <li><strong>摘要：</strong>必须提供，用一段话概括研究的核心发现。</li>
+        <li><strong>引言：</strong>说明研究背景和动机。</li>
+        <li><strong>研究过程：</strong>如何进行研究的。可以是数据分析、实验、调查、模型构建、理论推导等任何正规方法。</li>
+        <li><strong>结果与讨论：</strong>你发现了什么。有图表更佳。</li>
+        <li><strong>结论：</strong>一句话总结你的发现，并展望未来研究方向。</li>
+        <li><strong>参考文献：</strong>如果引用了他人的资料，请正规标注。（引用其他《DAMN》文章也完全可以，这会让我们非常感动。引用《SHIT》期刊的文章也行，我们尊重同行。引用你自己之前写的但没人看的课程论文也可以——至少在这里它终于被引用了。）</li>
+      </ul>
+
+      <!-- 投稿方式 -->
+      <h2>投稿方式 / How to Submit</h2>
+
+      <p><strong>请将稿件发送至邮箱：<a href="mailto:2401112250@stu.pku.edu.cn">2401112250@stu.pku.edu.cn</a></strong></p>
+      <p><strong>邮件标题请注明"《DAMN》投稿"</strong></p>
+
+      <p><strong>请清晰标明：</strong>第一作者，共同第一作者，第二作者，第三作者……，允许有通讯作者。并提供每位作者的单位。</p>
+
+      <p><strong>注意：</strong>挂名、单位的时候，一定要经得本人和单位同意！不建议挂靠正经单位，我们害怕律师函。</p>
+
+      <p>（特别提醒：请勿将导师列为通讯作者但不告知导师。我们见过太多学术悲剧的开端，不想再见证新的。如果你非要挂，建议先确认导师的幽默感评级在A级以上。）</p>
+
+      <p>免费投稿，在线发表。不收取任何费用。</p>
+
+      <p>建议字数：2000-10000字。太短不足以论证，太长则说明你可能真的发现了什么——那建议你投正经期刊。</p>
+
+      <p><strong>支持一稿多投</strong>——我们对自己的文章质量有信心，不怕竞争。如果你的文章同时被《DAMN》和《Nature》录用，我们会以你为荣。</p>
+
+      <!-- 审稿流程 -->
+      <h2>审稿流程 / Review Process</h2>
+
+      <p>稿件经编辑初审后，将由编委会判断是否符合《DAMN》的收稿标准。我们重点审查以下三点：</p>
+      <ol>
+        <li>选题是否足够新颖有趣（平庸是唯一的原罪）</li>
+        <li>论证过程是否严谨有逻辑（荒诞的是课题，不是方法）</li>
+        <li>是否存在造假或抄袭（零容忍）</li>
+      </ol>
+
+      <p>审稿周期：目标72小时内。如果超过一周没有回复，大概率是我们的邮箱又被垃圾邮件过滤器误伤了，请再发一遍。每一个投稿无论录用与否，我们都一定会给予回复的！</p>
+
+      <!-- 内容底线 -->
+      <h2>内容底线 / Content Policy</h2>
+
+      <p>以下内容将被直接拒稿，不予讨论：</p>
+      <ul>
+        <li>一切形式的学术造假、数据编造、抄袭剽窃。我们开玩笑，但不开骗局。</li>
+        <li>涉及人身攻击、地域歧视、性别歧视等恶意内容。幽默的边界是温和的冒犯，而非伤害。</li>
+        <li>涉及政治敏感、违法违规的内容。我们想长久地活下去。</li>
+        <li>AI一键生成的水文。你可以用AI辅助，但核心创意和思考必须是你自己的。我们要的是人类的灵光一闪，不是机器的流水线。</li>
+      </ul>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-12 bg-(--color-accent)/10 border border-(--color-accent)/30 rounded p-6 text-center">
+      <p class="text-(--color-text-primary) font-semibold mb-2">准备好了？/ Ready?</p>
+      <a href="mailto:2401112250@stu.pku.edu.cn" class="text-lg text-(--color-accent) font-mono">
+        2401112250@stu.pku.edu.cn
+      </a>
+      <p class="text-xs text-(--color-text-secondary) mt-2">我们承诺以最快的速度审稿 / We promise the fastest review possible</p>
+    </div>
+  </div>
+</BaseLayout>

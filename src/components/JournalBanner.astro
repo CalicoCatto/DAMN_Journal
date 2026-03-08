@@ -1,0 +1,36 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="py-20 sm:py-28 text-center border-b border-(--color-border)">
+  <div class="max-w-3xl mx-auto px-4">
+    <!-- Journal Name -->
+    <h1 class="text-5xl sm:text-7xl font-bold tracking-widest text-(--color-accent) mb-3" style="font-family: var(--font-serif);">
+      DAMN
+    </h1>
+    <p class="text-xl sm:text-2xl text-(--color-text-primary) mb-2" style="font-family: var(--font-serif);">
+      《彻诞》
+    </p>
+    <p class="text-sm text-(--color-text-secondary) tracking-wide mb-8">
+      Discovery and Advancement of Modern Nature
+    </p>
+
+    <!-- Taglines -->
+    <div class="space-y-2 mb-12">
+      <p class="text-base sm:text-lg text-(--color-text-secondary)" style="font-family: var(--font-serif);">
+        彻古今之变，诞闻所未闻
+      </p>
+      <p class="text-sm text-(--color-text-secondary) italic">
+        Truth fades, but DAMN lasts forever.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <a
+      href={`${base}submit/`}
+      class="inline-block px-8 py-3 bg-(--color-accent) text-white font-semibold rounded hover:bg-(--color-accent-hover) transition-colors no-underline hover:text-white text-sm tracking-wide"
+    >
+      投稿指南 / Submit Your Research
+    </a>
+  </div>
+</section>

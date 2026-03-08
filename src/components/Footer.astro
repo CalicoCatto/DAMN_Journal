@@ -1,0 +1,40 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-(--color-border) bg-(--color-bg-secondary)">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Journal Identity -->
+      <div>
+        <h3 class="text-lg font-bold text-(--color-accent) mb-2" style="font-family: var(--font-serif);">DAMN</h3>
+        <p class="text-sm text-(--color-text-secondary)">
+          Discovery and Advancement of Modern Nature<br />
+          《彻诞》— 彻底探索，诞生新知
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-sm font-semibold text-(--color-text-primary) mb-2">联系方式 / Contact</h4>
+        <p class="text-sm text-(--color-text-secondary)">
+          投稿邮箱 / Submission: <a href="mailto:2401112250@stu.pku.edu.cn" class="text-(--color-link)">2401112250@stu.pku.edu.cn</a><br />
+          QQ: 470045806
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 class="text-sm font-semibold text-(--color-text-primary) mb-2">友情链接 / Links</h4>
+        <p class="text-sm text-(--color-text-secondary) italic">
+          鸣谢《SHIT》期刊的开创性贡献
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-4 border-t border-(--color-border) text-center text-xs text-(--color-text-secondary)">
+      <p>&copy; {year} DAMN — Discovery and Advancement of Modern Nature. 版权归作者所有 / All rights reserved by authors.</p>
+      <p class="mt-1">Truth fades, but DAMN lasts forever.</p>
+    </div>
+  </div>
+</footer>

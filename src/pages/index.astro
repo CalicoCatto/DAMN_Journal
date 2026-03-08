@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JournalBanner from '../components/JournalBanner.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 10);
+---
+
+<BaseLayout title="DAMN — Discovery and Advancement of Modern Nature | 《彻诞》">
+  <JournalBanner />
+
+  <!-- Latest Articles -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+    <h2 class="text-xl font-bold text-(--color-text-primary) mb-6 flex items-center gap-3" style="font-family: var(--font-serif);">
+      <span class="w-1 h-6 bg-(--color-accent) inline-block"></span>
+      最新文章 / Latest Articles
+    </h2>
+
+    {articles.length > 0 ? (
+      <div class="space-y-4">
+        {articles.map(article => (
+          <ArticleCard
+            slug={article.slug}
+            title={article.data.title}
+            authors={article.data.authors}
+            date={article.data.date}
+            abstract={article.data.abstract}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded p-8 text-center">
+        <p class="text-(--color-text-secondary)">暂无文章，敬请期待 / No articles yet, stay tuned.</p>
+      </div>
+    )}
+
+    {articles.length > 0 && (
+      <div class="mt-8 text-center">
+        <a
+          href={`${import.meta.env.BASE_URL}articles/`}
+          class="text-sm text-(--color-link) hover:text-(--color-accent-hover)"
+        >
+          查看全部文章 / View All Articles →
+        </a>
+      </div>
+    )}
+  </section>
+</BaseLayout>

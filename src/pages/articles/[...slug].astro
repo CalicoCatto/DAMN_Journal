@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CommentPlaceholder from '../../components/CommentPlaceholder.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map(article => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+const { title, authors, date, id, keywords } = article.data;
+const dateStr = date.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
+---
+
+<BaseLayout title={`${title} — DAMN`} description={article.data.abstract}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <!-- Journal identifier -->
+    <div class="text-center mb-8">
+      <p class="text-xs tracking-[0.2em] uppercase text-(--color-text-secondary) mb-6">
+        DAMN · Discovery and Advancement of Modern Nature
+      </p>
+
+      <!-- Article ID -->
+      <p class="text-xs text-(--color-text-secondary) mb-4 font-mono">
+        {id}
+      </p>
+
+      <!-- Title -->
+      <h1 class="text-2xl sm:text-3xl font-bold text-(--color-text-primary) leading-tight mb-6" style="font-family: var(--font-serif);">
+        {title}
+      </h1>
+
+      <!-- Authors -->
+      <div class="space-y-1 mb-4">
+        {authors.map((author, i) => (
+          <p class="text-sm text-(--color-text-primary)">
+            {author.name}<sup class="text-(--color-accent)">{i + 1}</sup>
+          </p>
+        ))}
+      </div>
+
+      <!-- Affiliations -->
+      <div class="space-y-0.5 mb-4">
+        {authors.map((author, i) => (
+          <p class="text-xs text-(--color-text-secondary)">
+            <sup>{i + 1}</sup> {author.affiliation}
+          </p>
+        ))}
+      </div>
+
+      <!-- Date -->
+      <p class="text-xs text-(--color-text-secondary)">
+        发表日期 / Published: <time datetime={date.toISOString()}>{dateStr}</time>
+      </p>
+
+      <!-- Keywords -->
+      <div class="mt-4 flex flex-wrap justify-center gap-2">
+        {keywords.map(kw => (
+          <span class="text-xs px-2 py-0.5 bg-(--color-bg-tertiary) text-(--color-text-secondary) rounded">
+            {kw}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="border-(--color-border) mb-8" />
+
+    <!-- Article body -->
+    <div class="prose">
+      <Content />
+    </div>
+
+    <!-- Comments -->
+    <CommentPlaceholder />
+  </article>
+</BaseLayout>
