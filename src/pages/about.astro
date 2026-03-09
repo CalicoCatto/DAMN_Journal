@@ -8,104 +8,244 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       关于《DAMN》/ About DAMN
     </h1>
 
-    <div class="prose">
-      <!-- Journal Identity -->
-      <h2>期刊身份 / Journal Identity</h2>
+    <!-- Section 1: 期刊身份 -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-1.5 h-8 bg-(--color-accent) inline-block rounded-full"></span>
+        <h2 class="text-xl font-bold text-(--color-accent)" style="font-family: var(--font-serif);">
+          期刊身份 / Journal Identity
+        </h2>
+      </div>
 
-      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded p-6 mb-6">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-6 mb-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm">
           <div>
-            <p class="text-(--color-text-secondary) mb-1">英文名 / English Name</p>
-            <p class="font-semibold">DAMN (D.A.M.N)</p>
+            <p class="text-(--color-text-secondary) text-xs mb-1 tracking-wide uppercase">英文名 / English Name</p>
+            <p class="font-bold text-(--color-text-primary) text-lg">DAMN <span class="text-(--color-text-secondary) font-normal text-sm">(D.A.M.N)</span></p>
           </div>
           <div>
-            <p class="text-(--color-text-secondary) mb-1">英文全称 / Full Name</p>
-            <p class="font-semibold">Discovery and Advancement of Modern Nature</p>
+            <p class="text-(--color-text-secondary) text-xs mb-1 tracking-wide uppercase">英文全称 / Full Name</p>
+            <p class="font-semibold text-(--color-text-primary)">Discovery and Advancement of Modern Nature</p>
           </div>
           <div>
-            <p class="text-(--color-text-secondary) mb-1">中文名 / Chinese Name</p>
-            <p class="font-semibold">《彻诞》</p>
+            <p class="text-(--color-text-secondary) text-xs mb-1 tracking-wide uppercase">中文名 / Chinese Name</p>
+            <p class="font-bold text-(--color-text-primary) text-lg" style="font-family: var(--font-serif);">《彻诞》</p>
           </div>
           <div>
-            <p class="text-(--color-text-secondary) mb-1">中文释义 / Meaning</p>
-            <p class="font-semibold">彻底探索，诞生新知</p>
+            <p class="text-(--color-text-secondary) text-xs mb-1 tracking-wide uppercase">中文释义 / Meaning</p>
+            <p class="font-semibold text-(--color-text-primary)">彻底探索，诞生新知</p>
           </div>
         </div>
       </div>
 
-      <div class="text-center my-8">
-        <p class="text-lg text-(--color-text-primary) italic" style="font-family: var(--font-serif);">
+      <!-- Taglines -->
+      <div class="text-center my-10 py-8 border-y border-(--color-border)">
+        <p class="text-xl text-(--color-text-primary) font-bold mb-3" style="font-family: var(--font-serif);">
           "彻古今之变，诞闻所未闻"
         </p>
-        <p class="text-sm text-(--color-text-secondary) italic mt-2">
+        <p class="text-sm text-(--color-text-secondary) mt-2">
           Truth fades, but DAMN lasts forever.
         </p>
       </div>
+    </section>
 
-      <!-- About -->
-      <h2>关于我们 / About Us</h2>
-
-      <p>《DAMN》（Discovery and Advancement of Modern Nature），中文名《彻诞》，创办于2026年，是一本致力于收录严肃荒诞研究的开放获取学术期刊。</p>
-
-      <p><strong>我们相信：世界上最伟大的发现，往往诞生于最荒诞的提问。</strong></p>
-
-      <!-- Core Philosophy -->
-      <h2>核心理念 / Philosophy</h2>
-
-      <blockquote>
-        课题可以荒诞，但思维必须严谨；<br />
-        表达可以有趣，但逻辑必须自洽；<br />
-        形式可以解构，但绝不允许造假。
-      </blockquote>
-
-      <!-- Comment Culture -->
-      <h2>评论区文化 / Comment Culture</h2>
-
-      <p>《彻诞》鼓励有质量的讨论：</p>
-      <ul>
-        <li><strong>认真审视：</strong>像真正的学术审稿一样认真，指出方法论漏洞、逻辑矛盾、或者"这个课题还不够荒诞"</li>
-        <li><strong>继续扯诞：</strong>建设性地提出更荒诞的研究方向，或补充更妙的角度</li>
-      </ul>
-
-      <p>最后，如果你读到这里还没有关掉页面，说明你就是我们要找的人。欢迎加入《DAMN》，和我们一起——彻古今之变，诞闻所未闻。</p>
-
-      <!-- Editorial Board -->
-      <h2>编委会 / Editorial Board</h2>
-
-      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded p-6">
-        <p><strong>主编 / Editor-in-Chief:</strong> 祈愿的猫</p>
-        <p class="text-(--color-text-secondary) text-sm mt-2">编委会成员正在招募中。如果你有学术背景且幽默感评级在A级以上，欢迎联系我们。</p>
+    <!-- Section 2: 关于我们 -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-1.5 h-8 bg-(--color-accent) inline-block rounded-full"></span>
+        <h2 class="text-xl font-bold text-(--color-accent)" style="font-family: var(--font-serif);">
+          关于我们 / About Us
+        </h2>
       </div>
 
-      <!-- Contact -->
-      <h2>联系方式 / Contact</h2>
+      <p class="text-(--color-text-primary) leading-relaxed mb-4">
+        《DAMN》（Discovery and Advancement of Modern Nature），中文名《彻诞》，创办于2026年，是一本致力于收录<strong>严肃荒诞研究</strong>的开放获取学术期刊。
+      </p>
 
-      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded p-6">
-        <p><strong>投稿邮箱 / Submission Email:</strong> <a href="mailto:470045806@qq.com">470045806@qq.com</a></p>
-        <p class="text-xs text-(--color-text-secondary)">（此为临时投稿邮箱，日后等后端部署完成，会发布正式的网页投稿途径）</p>
-        <p class="mt-2"><strong>QQ:</strong> 470045806</p>
+      <div class="bg-(--color-accent)/10 border border-(--color-accent)/30 rounded-lg p-5 text-center">
+        <p class="text-(--color-text-primary) font-bold text-lg" style="font-family: var(--font-serif);">
+          我们相信：世界上最伟大的发现，往往诞生于最荒诞的提问。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: 核心理念 -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-1.5 h-8 bg-(--color-accent) inline-block rounded-full"></span>
+        <h2 class="text-xl font-bold text-(--color-accent)" style="font-family: var(--font-serif);">
+          核心理念 / Philosophy
+        </h2>
       </div>
 
-      <!-- Acknowledgment -->
-      <h2>鸣谢 / Acknowledgments</h2>
+      <div class="bg-(--color-bg-secondary) border-l-4 border-(--color-accent) rounded-r-lg p-5">
+        <ul class="space-y-2 text-(--color-text-primary)">
+          <li class="flex items-start gap-2">
+            <span class="text-(--color-accent) font-bold mt-0.5">▸</span>
+            <span>课题可以荒诞，但<strong>思维必须严谨</strong></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-(--color-accent) font-bold mt-0.5">▸</span>
+            <span>表达可以有趣，但<strong>逻辑必须自洽</strong></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-(--color-accent) font-bold mt-0.5">▸</span>
+            <span>形式可以解构，但<strong>绝不允许造假</strong></span>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-      <p>鸣谢《SHIT》期刊作为先行者的开创性贡献，我们希望能够打造一个差异化有特色的期刊。</p>
+    <!-- Section 4: 评论区文化 -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-1.5 h-8 bg-(--color-accent) inline-block rounded-full"></span>
+        <h2 class="text-xl font-bold text-(--color-accent)" style="font-family: var(--font-serif);">
+          评论区文化 / Comment Culture
+        </h2>
+      </div>
 
-      <p>欢迎更多希望参与《DAMN》期刊创立的成员联系我：QQ 470045806</p>
+      <p class="text-(--color-text-primary) mb-4 leading-relaxed">《彻诞》鼓励有质量的讨论：</p>
 
-      <!-- Copyright -->
-      <h2>版权声明 / Copyright</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">🔍</span>
+            <p class="font-semibold text-(--color-text-primary)">认真审视</p>
+          </div>
+          <p class="text-sm text-(--color-text-primary)">
+            像真正的学术审稿一样认真，指出方法论漏洞、逻辑矛盾、或者<span class="text-amber-300">"这个课题还不够荒诞"</span>
+          </p>
+        </div>
+        <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">💬</span>
+            <p class="font-semibold text-(--color-text-primary)">继续扯诞</p>
+          </div>
+          <p class="text-sm text-(--color-text-primary)">
+            建设性地提出更荒诞的研究方向，或补充更妙的角度
+          </p>
+        </div>
+      </div>
 
-      <p>在《DAMN》发表的文章，版权归作者本人所有。我们只是帮你把好东西展示给更多人看。</p>
+      <p class="text-amber-300 text-sm bg-(--color-bg-tertiary) rounded-lg p-3">
+        最后，如果你读到这里还没有关掉页面，说明你就是我们要找的人。欢迎加入《DAMN》，和我们一起——彻古今之变，诞闻所未闻。
+      </p>
+    </section>
 
-      <p>欢迎任何人转载《DAMN》的文章，但请注明出处并附上原文链接。如果你转载后获得了十万加阅读量，请在心里默默感谢我们，或者投一篇新稿作为回报。</p>
+    <!-- Section 5: 编委会 -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-1.5 h-8 bg-(--color-accent) inline-block rounded-full"></span>
+        <h2 class="text-xl font-bold text-(--color-accent)" style="font-family: var(--font-serif);">
+          编委会 / Editorial Board
+        </h2>
+      </div>
 
-      <!-- Disclaimer -->
-      <h2>免责声明 / Disclaimer</h2>
+      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-6">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-(--color-accent) text-lg">👤</span>
+          <div>
+            <p class="text-(--color-text-primary) font-semibold">主编 / Editor-in-Chief</p>
+            <p class="text-(--color-text-primary) text-lg font-bold" style="font-family: var(--font-serif);">祈愿的猫</p>
+          </div>
+        </div>
+        <hr class="border-(--color-border) my-3" />
+        <p class="text-amber-300/80 text-sm">
+          编委会成员正在招募中。如果你有学术背景且幽默感评级在A级以上，欢迎联系我们。
+        </p>
+      </div>
+    </section>
 
-      <p>《DAMN》所刊载的文章仅代表作者个人观点，不代表本刊立场。如因文章内容引发任何学术争议、家庭矛盾、导师震怒或室友关系破裂，本刊概不负责。</p>
+    <!-- Section 6: 联系方式 -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-1.5 h-8 bg-(--color-accent) inline-block rounded-full"></span>
+        <h2 class="text-xl font-bold text-(--color-accent)" style="font-family: var(--font-serif);">
+          联系方式 / Contact
+        </h2>
+      </div>
 
-      <p class="text-center text-(--color-text-secondary) mt-8">—— 祈愿的猫</p>
+      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-6 space-y-3">
+        <div class="flex items-start gap-3">
+          <span class="text-(--color-accent)">✦</span>
+          <div>
+            <p class="text-sm text-(--color-text-secondary)">投稿邮箱 / Submission Email</p>
+            <a href="mailto:470045806@qq.com" class="text-(--color-link) font-mono font-semibold">470045806@qq.com</a>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-(--color-accent)">✦</span>
+          <div>
+            <p class="text-sm text-(--color-text-secondary)">QQ</p>
+            <p class="text-(--color-text-primary) font-mono font-semibold">470045806</p>
+          </div>
+        </div>
+        <p class="text-xs text-amber-300/80 mt-2">
+          （此为临时投稿邮箱，日后等后端部署完成，会发布正式的网页投稿途径）
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 7: 鸣谢 -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-1.5 h-8 bg-(--color-accent) inline-block rounded-full"></span>
+        <h2 class="text-xl font-bold text-(--color-accent)" style="font-family: var(--font-serif);">
+          鸣谢 / Acknowledgments
+        </h2>
+      </div>
+
+      <p class="text-(--color-text-primary) leading-relaxed mb-4">
+        鸣谢《SHIT》期刊作为先行者的开创性贡献，我们希望能够打造一个差异化有特色的期刊。
+      </p>
+
+      <p class="text-(--color-text-primary) leading-relaxed">
+        欢迎更多希望参与《DAMN》期刊创立的成员联系我：<strong>QQ 470045806</strong>
+      </p>
+    </section>
+
+    <!-- Section 8: 版权声明 -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-1.5 h-8 bg-(--color-accent) inline-block rounded-full"></span>
+        <h2 class="text-xl font-bold text-(--color-accent)" style="font-family: var(--font-serif);">
+          版权声明 / Copyright
+        </h2>
+      </div>
+
+      <p class="text-(--color-text-primary) leading-relaxed mb-4">
+        在《DAMN》发表的文章，<strong>版权归作者本人所有</strong>。我们只是帮你把好东西展示给更多人看。
+      </p>
+
+      <p class="text-(--color-text-primary) leading-relaxed mb-2">
+        欢迎任何人转载《DAMN》的文章，但请注明出处并附上原文链接。
+      </p>
+      <p class="text-amber-300 text-sm">
+        如果你转载后获得了十万加阅读量，请在心里默默感谢我们，或者投一篇新稿作为回报。
+      </p>
+    </section>
+
+    <!-- Section 9: 免责声明 -->
+    <section class="mb-8">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-1.5 h-8 bg-(--color-accent) inline-block rounded-full"></span>
+        <h2 class="text-xl font-bold text-(--color-accent)" style="font-family: var(--font-serif);">
+          免责声明 / Disclaimer
+        </h2>
+      </div>
+
+      <p class="text-(--color-text-primary) leading-relaxed mb-2">
+        《DAMN》所刊载的文章仅代表作者个人观点，不代表本刊立场。
+      </p>
+      <p class="text-amber-300 text-sm">
+        如因文章内容引发任何学术争议、家庭矛盾、导师震怒或室友关系破裂，本刊概不负责。
+      </p>
+    </section>
+
+    <!-- Signature -->
+    <div class="text-center pt-8 border-t border-(--color-border)">
+      <p class="text-(--color-text-secondary)" style="font-family: var(--font-serif);">—— 祈愿的猫</p>
     </div>
   </div>
 </BaseLayout>
