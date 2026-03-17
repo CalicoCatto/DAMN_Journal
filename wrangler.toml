@@ -1,0 +1,14 @@
+name = "damn-journal"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "damn-submissions"
+database_id = "placeholder"
+
+[[r2_buckets]]
+binding = "SUBMISSIONS_BUCKET"
+bucket_name = "damn-submissions"
+
+[vars]
+EDITOR_EMAIL = "damnjournal@163.com"

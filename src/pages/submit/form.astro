@@ -1,0 +1,379 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="在线投稿 / Online Submission — DAMN">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <h1 class="text-2xl sm:text-3xl font-bold text-(--color-text-primary) mb-2" style="font-family: var(--font-serif);">
+      在线投稿 / Online Submission
+    </h1>
+    <p class="text-sm text-(--color-text-secondary) mb-8">
+      请填写以下信息并上传稿件 / Please fill in the details and upload your manuscript
+    </p>
+
+    <!-- Key Reminders -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-4">
+        <p class="text-xs font-semibold text-(--color-accent) mb-2">📄 论文结构 / Paper Structure</p>
+        <p class="text-xs text-(--color-text-secondary)">标题 → 摘要 → 引言 → 研究过程 → 结果与讨论 → 结论 → 参考文献</p>
+      </div>
+      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-4">
+        <p class="text-xs font-semibold text-(--color-accent) mb-2">📎 文件要求 / File Requirements</p>
+        <p class="text-xs text-(--color-text-secondary)">.docx / .md / .pdf，不超过 10MB</p>
+      </div>
+      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-4">
+        <p class="text-xs font-semibold text-(--color-accent) mb-2">📝 建议字数 / Word Count</p>
+        <p class="text-xs text-(--color-text-secondary)">2,000 - 10,000 字</p>
+      </div>
+      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-4">
+        <p class="text-xs font-semibold text-(--color-accent) mb-2">⚠️ 署名注意 / Author Notice</p>
+        <p class="text-xs text-(--color-text-secondary)">挂名须经本人和单位同意</p>
+      </div>
+    </div>
+
+    <!-- Content Policy Reminder -->
+    <div class="border border-red-800/20 bg-red-900/10 rounded-lg p-4 mb-10">
+      <p class="text-xs font-semibold text-red-400 mb-1">内容底线 / Content Policy</p>
+      <p class="text-xs text-(--color-text-secondary)">
+        不接受学术造假、人身攻击、政治敏感内容、AI纯生成水文。详见
+        <a href="/submit/" class="text-(--color-link)">投稿指南 / Submission Guidelines</a>。
+      </p>
+    </div>
+
+    <!-- Submission Form -->
+    <form id="submission-form" class="space-y-8">
+
+      <!-- Title -->
+      <div>
+        <label class="block text-sm font-semibold text-(--color-text-primary) mb-2">
+          论文标题 / Title <span class="text-(--color-accent)">*</span>
+        </label>
+        <input
+          type="text"
+          name="title"
+          required
+          maxlength="500"
+          placeholder="请输入论文标题 / Enter your paper title"
+          class="w-full bg-(--color-bg-tertiary) border border-(--color-border) rounded-lg px-4 py-3 text-sm text-(--color-text-primary) placeholder:text-(--color-text-secondary)/50 focus:outline-none focus:border-(--color-accent) focus:ring-1 focus:ring-(--color-accent) transition-colors"
+        />
+        <p class="text-xs text-(--color-text-secondary) mt-1">
+          <span class="text-amber-300">好标题的标准：让导师看到会沉默，让朋友看到会转发，让陌生人看到会点进来。</span>
+        </p>
+      </div>
+
+      <!-- Authors -->
+      <div>
+        <label class="block text-sm font-semibold text-(--color-text-primary) mb-2">
+          作者信息 / Authors <span class="text-(--color-accent)">*</span>
+        </label>
+        <div id="authors-container" class="space-y-3">
+          <!-- Author row template (first author, non-removable) -->
+          <div class="author-row bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-4">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <input
+                type="text"
+                placeholder="姓名 / Name *"
+                class="author-name bg-(--color-bg-tertiary) border border-(--color-border) rounded px-3 py-2 text-sm text-(--color-text-primary) placeholder:text-(--color-text-secondary)/50 focus:outline-none focus:border-(--color-accent) transition-colors"
+                required
+              />
+              <input
+                type="text"
+                placeholder="单位 / Affiliation"
+                class="author-affiliation bg-(--color-bg-tertiary) border border-(--color-border) rounded px-3 py-2 text-sm text-(--color-text-primary) placeholder:text-(--color-text-secondary)/50 focus:outline-none focus:border-(--color-accent) transition-colors"
+              />
+              <div class="flex gap-2">
+                <select class="author-role flex-1 bg-(--color-bg-tertiary) border border-(--color-border) rounded px-3 py-2 text-sm text-(--color-text-primary) focus:outline-none focus:border-(--color-accent) transition-colors">
+                  <option value="第一作者">第一作者 / First Author</option>
+                  <option value="共同第一作者">共同第一作者 / Co-first</option>
+                  <option value="通讯作者">通讯作者 / Corresponding</option>
+                  <option value="其他作者">其他作者 / Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          type="button"
+          id="add-author-btn"
+          class="mt-3 text-sm text-(--color-link) hover:text-(--color-accent-hover) transition-colors flex items-center gap-1"
+        >
+          <span>+</span> 添加作者 / Add Author
+        </button>
+      </div>
+
+      <!-- Abstract -->
+      <div>
+        <label class="block text-sm font-semibold text-(--color-text-primary) mb-2">
+          摘要 / Abstract <span class="text-(--color-accent)">*</span>
+        </label>
+        <textarea
+          name="abstract"
+          required
+          maxlength="5000"
+          rows="6"
+          placeholder="用一段话概括研究的核心发现 / Summarize your core findings in one paragraph"
+          class="w-full bg-(--color-bg-tertiary) border border-(--color-border) rounded-lg px-4 py-3 text-sm text-(--color-text-primary) placeholder:text-(--color-text-secondary)/50 focus:outline-none focus:border-(--color-accent) focus:ring-1 focus:ring-(--color-accent) transition-colors resize-y"
+        ></textarea>
+        <p class="text-xs text-(--color-text-secondary) mt-1">
+          <span id="abstract-count">0</span> / 5000
+        </p>
+      </div>
+
+      <!-- Keywords -->
+      <div>
+        <label class="block text-sm font-semibold text-(--color-text-primary) mb-2">
+          关键词 / Keywords <span class="text-(--color-accent)">*</span>
+        </label>
+        <input
+          type="text"
+          name="keywords"
+          required
+          placeholder="用逗号分隔 / Separate with commas, e.g. 博弈论, 空调, 宿舍"
+          class="w-full bg-(--color-bg-tertiary) border border-(--color-border) rounded-lg px-4 py-3 text-sm text-(--color-text-primary) placeholder:text-(--color-text-secondary)/50 focus:outline-none focus:border-(--color-accent) focus:ring-1 focus:ring-(--color-accent) transition-colors"
+        />
+      </div>
+
+      <!-- Contact Email -->
+      <div>
+        <label class="block text-sm font-semibold text-(--color-text-primary) mb-2">
+          联系邮箱 / Contact Email <span class="text-(--color-accent)">*</span>
+        </label>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="用于接收审稿结果 / For receiving review results"
+          class="w-full bg-(--color-bg-tertiary) border border-(--color-border) rounded-lg px-4 py-3 text-sm text-(--color-text-primary) placeholder:text-(--color-text-secondary)/50 focus:outline-none focus:border-(--color-accent) focus:ring-1 focus:ring-(--color-accent) transition-colors"
+        />
+      </div>
+
+      <!-- File Upload -->
+      <div>
+        <label class="block text-sm font-semibold text-(--color-text-primary) mb-2">
+          稿件上传 / Upload Manuscript <span class="text-(--color-accent)">*</span>
+        </label>
+        <div id="file-drop-zone" class="border-2 border-dashed border-(--color-border) rounded-lg p-8 text-center hover:border-(--color-accent) transition-colors cursor-pointer">
+          <input
+            type="file"
+            name="file"
+            id="file-input"
+            accept=".docx,.md,.pdf"
+            required
+            class="hidden"
+          />
+          <div id="file-placeholder">
+            <p class="text-(--color-text-secondary) text-sm mb-1">点击或拖拽上传文件 / Click or drag to upload</p>
+            <p class="text-(--color-text-secondary) text-xs">支持 .docx / .md / .pdf，最大 10MB</p>
+          </div>
+          <div id="file-selected" class="hidden">
+            <p class="text-(--color-text-primary) text-sm font-semibold" id="file-name-display"></p>
+            <p class="text-(--color-text-secondary) text-xs mt-1" id="file-size-display"></p>
+            <button type="button" id="file-remove-btn" class="text-xs text-red-400 mt-2 hover:text-red-300">
+              移除 / Remove
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error Display -->
+      <div id="form-error" class="hidden bg-red-900/10 border border-red-800/20 rounded-lg p-4">
+        <p class="text-red-400 text-sm" id="error-message"></p>
+      </div>
+
+      <!-- Success Display -->
+      <div id="form-success" class="hidden bg-green-900/10 border border-green-800/20 rounded-lg p-6 text-center">
+        <p class="text-green-400 text-lg font-bold mb-2">投稿成功！/ Submission Successful!</p>
+        <p class="text-(--color-text-primary) text-sm mb-1">
+          您的投稿编号 / Your submission ID: <span id="submission-id" class="font-mono text-(--color-accent) font-bold"></span>
+        </p>
+        <p class="text-(--color-text-secondary) text-xs mt-3">
+          我们将在 72 小时内完成审稿，结果将发送至您的联系邮箱。<br />
+          We will complete the review within 72 hours. Results will be sent to your contact email.
+        </p>
+      </div>
+
+      <!-- Submit Button -->
+      <div id="submit-section">
+        <button
+          type="submit"
+          id="submit-btn"
+          class="w-full px-8 py-4 bg-(--color-accent) text-white text-base font-bold rounded-lg hover:bg-(--color-accent-hover) transition-all tracking-wide shadow-lg shadow-(--color-accent)/20 hover:shadow-(--color-accent)/40 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          提交投稿 / Submit Manuscript
+        </button>
+        <p class="text-xs text-(--color-text-secondary) text-center mt-3">
+          提交即表示您已阅读并同意遵守
+          <a href="/submit/" class="text-(--color-link)">投稿指南</a>
+          中的所有要求
+        </p>
+      </div>
+    </form>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-8 text-center">
+        <div class="inline-block w-8 h-8 border-3 border-(--color-accent) border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p class="text-(--color-text-primary) text-sm">正在提交... / Submitting...</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // --- Author Management ---
+  const authorsContainer = document.getElementById('authors-container');
+  const addAuthorBtn = document.getElementById('add-author-btn');
+
+  addAuthorBtn?.addEventListener('click', () => {
+    const row = document.createElement('div');
+    row.className = 'author-row bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-4';
+    row.innerHTML = `
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <input type="text" placeholder="姓名 / Name *"
+          class="author-name bg-(--color-bg-tertiary) border border-(--color-border) rounded px-3 py-2 text-sm text-(--color-text-primary) placeholder:text-(--color-text-secondary)/50 focus:outline-none focus:border-(--color-accent) transition-colors" required />
+        <input type="text" placeholder="单位 / Affiliation"
+          class="author-affiliation bg-(--color-bg-tertiary) border border-(--color-border) rounded px-3 py-2 text-sm text-(--color-text-primary) placeholder:text-(--color-text-secondary)/50 focus:outline-none focus:border-(--color-accent) transition-colors" />
+        <div class="flex gap-2">
+          <select class="author-role flex-1 bg-(--color-bg-tertiary) border border-(--color-border) rounded px-3 py-2 text-sm text-(--color-text-primary) focus:outline-none focus:border-(--color-accent) transition-colors">
+            <option value="其他作者">其他作者 / Other</option>
+            <option value="第一作者">第一作者 / First Author</option>
+            <option value="共同第一作者">共同第一作者 / Co-first</option>
+            <option value="通讯作者">通讯作者 / Corresponding</option>
+          </select>
+          <button type="button" class="remove-author-btn text-red-400 hover:text-red-300 text-sm px-2" title="移除 / Remove">✕</button>
+        </div>
+      </div>
+    `;
+    authorsContainer?.appendChild(row);
+    row.querySelector('.remove-author-btn')?.addEventListener('click', () => row.remove());
+  });
+
+  // --- Abstract Counter ---
+  const abstractField = document.querySelector('textarea[name="abstract"]') as HTMLTextAreaElement;
+  const abstractCount = document.getElementById('abstract-count');
+  abstractField?.addEventListener('input', () => {
+    if (abstractCount) abstractCount.textContent = String(abstractField.value.length);
+  });
+
+  // --- File Upload ---
+  const fileInput = document.getElementById('file-input') as HTMLInputElement;
+  const dropZone = document.getElementById('file-drop-zone');
+  const filePlaceholder = document.getElementById('file-placeholder');
+  const fileSelected = document.getElementById('file-selected');
+  const fileNameDisplay = document.getElementById('file-name-display');
+  const fileSizeDisplay = document.getElementById('file-size-display');
+  const fileRemoveBtn = document.getElementById('file-remove-btn');
+
+  dropZone?.addEventListener('click', () => fileInput?.click());
+  dropZone?.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('border-(--color-accent)'); });
+  dropZone?.addEventListener('dragleave', () => { dropZone.classList.remove('border-(--color-accent)'); });
+  dropZone?.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('border-(--color-accent)');
+    if (e.dataTransfer?.files.length) {
+      fileInput.files = e.dataTransfer.files;
+      showFileInfo(e.dataTransfer.files[0]);
+    }
+  });
+
+  fileInput?.addEventListener('change', () => {
+    if (fileInput.files?.length) showFileInfo(fileInput.files[0]);
+  });
+
+  fileRemoveBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    fileInput.value = '';
+    filePlaceholder?.classList.remove('hidden');
+    fileSelected?.classList.add('hidden');
+  });
+
+  function showFileInfo(file: File) {
+    if (fileNameDisplay) fileNameDisplay.textContent = file.name;
+    if (fileSizeDisplay) fileSizeDisplay.textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB`;
+    filePlaceholder?.classList.add('hidden');
+    fileSelected?.classList.remove('hidden');
+  }
+
+  // --- Form Submission ---
+  const form = document.getElementById('submission-form') as HTMLFormElement;
+  const formError = document.getElementById('form-error');
+  const errorMessage = document.getElementById('error-message');
+  const formSuccess = document.getElementById('form-success');
+  const submissionIdEl = document.getElementById('submission-id');
+  const submitSection = document.getElementById('submit-section');
+  const loadingOverlay = document.getElementById('loading-overlay');
+
+  function showError(msg: string) {
+    if (errorMessage) errorMessage.textContent = msg;
+    formError?.classList.remove('hidden');
+    formSuccess?.classList.add('hidden');
+  }
+
+  function hideError() {
+    formError?.classList.add('hidden');
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    hideError();
+
+    // Collect authors
+    const authorRows = document.querySelectorAll('.author-row');
+    const authors: { name: string; affiliation: string; role: string }[] = [];
+    for (const row of authorRows) {
+      const name = (row.querySelector('.author-name') as HTMLInputElement)?.value.trim();
+      const affiliation = (row.querySelector('.author-affiliation') as HTMLInputElement)?.value.trim();
+      const role = (row.querySelector('.author-role') as HTMLSelectElement)?.value;
+      if (!name) {
+        showError('每位作者必须填写姓名 / Each author must have a name');
+        return;
+      }
+      authors.push({ name, affiliation, role });
+    }
+
+    // Get file
+    const file = fileInput?.files?.[0];
+    if (!file) {
+      showError('请上传稿件文件 / Please upload a manuscript file');
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      showError('文件大小不能超过10MB / File must be under 10MB');
+      return;
+    }
+    const ext = file.name.slice(file.name.lastIndexOf('.')).toLowerCase();
+    if (!['.docx', '.md', '.pdf'].includes(ext)) {
+      showError('仅接受 .docx、.md、.pdf 格式 / Only .docx, .md, .pdf files are accepted');
+      return;
+    }
+
+    // Build FormData
+    const formData = new FormData();
+    formData.append('title', (form.querySelector('input[name="title"]') as HTMLInputElement).value.trim());
+    formData.append('authors', JSON.stringify(authors));
+    formData.append('abstract', (form.querySelector('textarea[name="abstract"]') as HTMLTextAreaElement).value.trim());
+    formData.append('keywords', (form.querySelector('input[name="keywords"]') as HTMLInputElement).value.trim());
+    formData.append('email', (form.querySelector('input[name="email"]') as HTMLInputElement).value.trim());
+    formData.append('file', file);
+
+    // Submit
+    loadingOverlay?.classList.remove('hidden');
+    try {
+      const res = await fetch('/api/submit', { method: 'POST', body: formData });
+      const data = await res.json();
+
+      if (data.success) {
+        form.classList.add('hidden');
+        submitSection?.classList.add('hidden');
+        formSuccess?.classList.remove('hidden');
+        if (submissionIdEl) submissionIdEl.textContent = data.id;
+      } else {
+        showError(data.error || '提交失败，请重试 / Submission failed, please try again');
+      }
+    } catch {
+      showError('网络错误，请检查连接后重试 / Network error, please check your connection');
+    } finally {
+      loadingOverlay?.classList.add('hidden');
+    }
+  });
+</script>
