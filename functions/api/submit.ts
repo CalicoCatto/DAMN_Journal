@@ -5,8 +5,8 @@ interface Env {
   EDITOR_EMAIL: string;
 }
 
-const ALLOWED_EXTENSIONS = ['.docx', '.md', '.pdf'];
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const ALLOWED_EXTENSIONS = ['.docx', '.doc', '.pdf', '.md', '.tex', '.txt', '.zip', '.rar', '.7z'];
+const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20MB
 
 function generateId(): string {
   return crypto.randomUUID();
@@ -131,11 +131,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       return jsonResponse({ success: false, error: '请上传稿件文件 / Manuscript file is required', field: 'file' }, 400);
     }
     if (file.size > MAX_FILE_SIZE) {
-      return jsonResponse({ success: false, error: '文件大小不能超过10MB / File must be under 10MB', field: 'file' }, 400);
+      return jsonResponse({ success: false, error: '文件大小不能超过20MB / File must be under 20MB', field: 'file' }, 400);
     }
     const ext = getFileExtension(file.name);
     if (!ALLOWED_EXTENSIONS.includes(ext)) {
-      return jsonResponse({ success: false, error: '仅接受 .docx、.md、.pdf 格式 / Only .docx, .md, .pdf files are accepted', field: 'file' }, 400);
+      return jsonResponse({ success: false, error: '不支持该文件格式 / Unsupported file format', field: 'file' }, 400);
     }
 
     // Generate ID and upload file to R2

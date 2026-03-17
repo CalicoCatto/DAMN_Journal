@@ -19,7 +19,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
       <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-4">
         <p class="text-xs font-semibold text-(--color-accent) mb-2">📎 文件要求 / File Requirements</p>
-        <p class="text-xs text-(--color-text-secondary)">.docx / .md / .pdf，不超过 10MB</p>
+        <p class="text-xs text-(--color-text-secondary)">.docx / .doc / .pdf / .md / .tex / .zip / .rar，不超过 20MB</p>
       </div>
       <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-4">
         <p class="text-xs font-semibold text-(--color-accent) mb-2">📝 建议字数 / Word Count</p>
@@ -157,13 +157,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             type="file"
             name="file"
             id="file-input"
-            accept=".docx,.md,.pdf"
+            accept=".docx,.doc,.pdf,.md,.tex,.txt,.zip,.rar,.7z"
             required
             class="hidden"
           />
           <div id="file-placeholder">
             <p class="text-(--color-text-secondary) text-sm mb-1">点击或拖拽上传文件 / Click or drag to upload</p>
-            <p class="text-(--color-text-secondary) text-xs">支持 .docx / .md / .pdf，最大 10MB</p>
+            <p class="text-(--color-text-secondary) text-xs">支持 .docx / .doc / .pdf / .md / .tex / .zip / .rar，最大 20MB</p>
           </div>
           <div id="file-selected" class="hidden">
             <p class="text-(--color-text-primary) text-sm font-semibold" id="file-name-display"></p>
@@ -178,18 +178,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <!-- Error Display -->
       <div id="form-error" class="hidden bg-red-900/10 border border-red-800/20 rounded-lg p-4">
         <p class="text-red-400 text-sm" id="error-message"></p>
-      </div>
-
-      <!-- Success Display -->
-      <div id="form-success" class="hidden bg-green-900/10 border border-green-800/20 rounded-lg p-6 text-center">
-        <p class="text-green-400 text-lg font-bold mb-2">投稿成功！/ Submission Successful!</p>
-        <p class="text-(--color-text-primary) text-sm mb-1">
-          您的投稿编号 / Your submission ID: <span id="submission-id" class="font-mono text-(--color-accent) font-bold"></span>
-        </p>
-        <p class="text-(--color-text-secondary) text-xs mt-3">
-          我们将在 72 小时内完成审稿，结果将发送至您的联系邮箱。<br />
-          We will complete the review within 72 hours. Results will be sent to your contact email.
-        </p>
       </div>
 
       <!-- Submit Button -->
@@ -208,6 +196,30 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </p>
       </div>
     </form>
+
+    <!-- Success Display (outside form so it stays visible when form is hidden) -->
+    <div id="form-success" class="hidden bg-green-900/10 border border-green-800/30 rounded-lg p-10 text-center my-8">
+      <div class="text-5xl mb-4">🎉</div>
+      <p class="text-green-400 text-2xl font-bold mb-3" style="font-family: var(--font-serif);">投稿成功！/ Submission Successful!</p>
+      <p class="text-(--color-text-primary) text-base mb-2">
+        您的投稿编号 / Your submission ID:
+      </p>
+      <p class="font-mono text-(--color-accent) font-bold text-xl mb-6" id="submission-id"></p>
+      <div class="bg-(--color-bg-secondary) border border-(--color-border) rounded-lg p-4 max-w-md mx-auto mb-6">
+        <p class="text-(--color-text-secondary) text-sm">
+          ⏱️ 我们将在 <strong class="text-(--color-text-primary)">72 小时内</strong>完成审稿，结果将发送至您的联系邮箱。<br />
+          We will complete the review within 72 hours.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="/submit/form/" class="inline-block px-6 py-2 bg-(--color-accent) text-white text-sm font-semibold rounded-lg hover:bg-(--color-accent-hover) transition-colors no-underline hover:text-white">
+          继续投稿 / Submit Another
+        </a>
+        <a href="/" class="inline-block px-6 py-2 bg-(--color-bg-tertiary) text-(--color-text-primary) text-sm font-semibold rounded-lg border border-(--color-border) hover:border-(--color-accent) transition-colors no-underline hover:text-(--color-text-primary)">
+          返回首页 / Back to Home
+        </a>
+      </div>
+    </div>
 
     <!-- Loading Overlay -->
     <div id="loading-overlay" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
@@ -337,13 +349,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       showError('请上传稿件文件 / Please upload a manuscript file');
       return;
     }
-    if (file.size > 10 * 1024 * 1024) {
-      showError('文件大小不能超过10MB / File must be under 10MB');
+    if (file.size > 20 * 1024 * 1024) {
+      showError('文件大小不能超过20MB / File must be under 20MB');
       return;
     }
     const ext = file.name.slice(file.name.lastIndexOf('.')).toLowerCase();
-    if (!['.docx', '.md', '.pdf'].includes(ext)) {
-      showError('仅接受 .docx、.md、.pdf 格式 / Only .docx, .md, .pdf files are accepted');
+    if (!['.docx', '.doc', '.pdf', '.md', '.tex', '.txt', '.zip', '.rar', '.7z'].includes(ext)) {
+      showError('不支持该文件格式 / Unsupported file format');
       return;
     }
 
