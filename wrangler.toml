@@ -1,10 +1,11 @@
 name = "damn-journal"
 compatibility_date = "2024-01-01"
+pages_build_output_dir = "./dist"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "damn-submissions"
-database_id = "placeholder"
+database_id = "393025e3-fb9f-40be-beb4-94123dd7d435"
 
 [[r2_buckets]]
 binding = "SUBMISSIONS_BUCKET"
