@@ -47,13 +47,13 @@
 
 ### 编委会 / Editorial Board
 
-- **主编 / Editor-in-Chief：** 祈愿的猫
-- 编委会成员正在招募中。如果你有学术背景且幽默感评级在A级以上，欢迎联系我们。
+- **主编 / Editors-in-Chief：** 祈愿的猫 · 木桃
+- 编委会成员正在招募中。欢迎有兴趣的人一起加入建设期刊！
 
 ### 联系方式 / Contact
 
 - **投稿邮箱 / Submission Email：** damnjournal@163.com
-- **QQ：** 470045806
+- **在线投稿 / Online Submission：** [damn-journal.pages.dev/submit/form](https://damn-journal.pages.dev/submit/form/)
 
 ### 版权声明 / Copyright
 
@@ -144,8 +144,8 @@
 
 鸣谢《SHIT》期刊作为先行者的开创性贡献
 
-欢迎更多希望参与《DAMN》期刊创立的成员联系我：QQ 470045806
+欢迎有兴趣的人一起加入建设期刊！联系邮箱：damnjournal@163.com
 
-—— 祈愿的猫
+—— 祈愿的猫 · 木桃
 
 </div>
