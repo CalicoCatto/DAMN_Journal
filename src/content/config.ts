@@ -12,6 +12,8 @@ const articles = defineCollection({
     date: z.date(),
     abstract: z.string(),
     keywords: z.array(z.string()),
+    pdf: z.string().optional(),
+    email: z.string().optional(),
   }),
 });
 
